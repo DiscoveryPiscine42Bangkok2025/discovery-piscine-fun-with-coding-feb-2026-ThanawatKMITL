@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Common style for both parallax images */
+.parallax-1, .parallax-2 {
+    /* The Magic Line: This makes the image freeze while you scroll */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Make the image section tall so you can scroll */
+    min-height: 100%;
+    position: relative;
+}
+
+/* Specific Image 1 */
+.parallax-1 {
+    background-image: url("https://blog.joffeemergencyservices.com/hubfs/maxresdefault.jpg");
+}
+
+/* Specific Image 2 */
+.parallax-2 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Night_Sky.png/1280px-Night_Sky.png");
+}
+
+/* Style for the text in the middle of images */
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.caption span {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+/* The Black Block in the middle */
+.static-block {
+    height: 400px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px 80px;
+    font-size: 20px;
+}
