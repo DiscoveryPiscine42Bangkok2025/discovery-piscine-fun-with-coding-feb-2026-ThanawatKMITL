@@ -1,0 +1,41 @@
+body {
+    background-color: #f1f1f1; /* Light gray */
+}
+
+.card {
+    background-color: white;
+    width: 300px;
+    margin: 0 auto; /* Centers the card แนวนอน */
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add shadow */
+}
+
+.profile-pic {
+    width: 100%; /* Forces image to fit the card width */
+    height: 300px;
+}
+
+/* Requirement: Invisible Table */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table td {
+    padding: 5px;
+    text-align: center; /* Aligns text in the center */
+}
+
+/* The Black Button */
+.contact-btn {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-btn:hover {
+    opacity: 0.8; /* Slight fade on hover */
+}
