@@ -1,0 +1,290 @@
+/* Global Styles */
+html {
+    /* This pushes the scroll position down so the Navbar doesn't cover content */
+    scroll-padding-top: 120px; 
+    scroll-behavior: smooth; /* Bonus: Makes it scroll smoothly instead of jumping */
+}
+/* Background for ENDFIELD */
+#endfield-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Grid Floor Effect */
+.grid-floor {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(255, 215, 0, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+    transform: perspective(500px) rotateX(60deg);
+    opacity: 0.4;
+}
+
+/* Text Stroke Effect */
+.text-stroke {
+    font-family: sans-serif;
+    font-size: 8rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+    margin: 0;
+    letter-spacing: 10px;
+}
+
+/* Cube Decoration */
+.cube-deco {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255,255,255,0.2);
+    position: relative;
+    transform: rotate(45deg);
+}
+.cube-deco::after {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px;
+    width: 100%; height: 100%;
+    border: 1px solid #FFD700;
+    opacity: 0.6;
+}
+
+.moving-shape {
+    position: absolute;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+/* Arknights Theme Variables */
+:root {
+    --bg-dark: #121212;
+    --bg-panel: #1f1f1f;
+    --accent: #FFD700; /* สีเหลือง Arknights */
+    --accent-blue: #00C8FF; /* สีฟ้า Terminal */
+    --text-main: #E0E0E0;
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Typography */
+.ark-title {
+    letter-spacing: 5px;
+    color: var(--text-main);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.ark-subtitle {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+/* Decoration Line */
+.decoration-line {
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-blue);
+    margin: 10px auto;
+}
+
+/* Navbar Customization */
+.ark-navbar {
+    background-color: rgba(31, 31, 31, 0.95);
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.ark-brand {
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--accent) !important;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent-blue) !important;
+}
+
+/* Main Content Spacing for Fixed Navbar */
+.main-content {
+    padding-top: 100px;
+}
+
+/* Cards (Resume Links) */
+.ark-card-link {
+    text-decoration: none;
+}
+
+.ark-card {
+    background: var(--bg-panel);
+    border: 1px solid #444;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); /* ตัดมุม */
+}
+
+.ark-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.card-header-ark {
+    background-color: var(--accent);
+    color: #000;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-family: var(--font-mono);
+    text-align: right;
+}
+
+.card-body-ark {
+    padding: 30px;
+    color: white;
+}
+
+/* Sections */
+.section-ark {
+    padding: 40px 0;
+}
+
+.section-title {
+    border-left: 5px solid var(--accent-blue);
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Profile Image Frame */
+.profile-frame {
+    position: relative;
+    padding: 10px;
+    border: 2px solid #333;
+    display: inline-block;
+}
+
+.profile-frame img {
+    width: 272px;
+    height: 272px;
+    object-fit: cover;
+}
+
+.profile-frame::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 20px; height: 20px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+}
+
+.profile-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; right: -2px;
+    width: 20px; height: 20px;
+    border-bottom: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+}
+
+/* Experience Box */
+.ark-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-left: 3px solid var(--accent);
+}
+
+/* Skills */
+.ark-skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ark-skill-list li {
+    margin-bottom: 15px;
+}
+
+.ark-progress {
+    height: 8px;
+    background-color: #333;
+    margin-top: 5px;
+}
+
+.ark-progress .progress-bar {
+    background-color: var(--accent-blue);
+}
+
+/* Buttons */
+.ark-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    transition: 0.3s;
+}
+
+.ark-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Footer */
+.ark-footer {
+    border-top: 1px solid #333;
+    margin-top: 50px;
+    color: #666;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Add to style.css for the game images */
+.hover-bright {
+    transition: all 0.3s ease;
+    filter: grayscale(80%); /* Makes them look dim/sci-fi initially */
+}
+.hover-bright:hover {
+    filter: grayscale(0%); /* Full color on hover */
+    transform: scale(1.05); /* Slight pop out */
+}
+
+.game-cover {
+    height: 120px;       /* Fixed height */
+    width: 100%;         /* Full width of the card */
+    object-fit: cover;   /* Crops the image so it doesn't stretch */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
