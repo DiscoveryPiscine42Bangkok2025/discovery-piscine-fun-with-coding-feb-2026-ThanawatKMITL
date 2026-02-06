@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Calculator jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Simple styling to make it look decent */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .calc-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-container">
+        <input type="text" id="leftOp">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="rightOp">
+        <input type="submit" id="submitBtn" value="Try me!">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            // --- 1. THE 30-SECOND NAG (Standard JS) ---
+            setInterval(function() {
+                alert("Please, use me...");
+            }, 30000);
+
+            // --- 2. THE CALCULATOR (jQuery) ---
+            $('#submitBtn').click(function() {
+                // Get values using jQuery .val()
+                var leftStr = $('#leftOp').val();
+                var rightStr = $('#rightOp').val();
+                var op = $('#operator').val();
+
+                var left = parseInt(leftStr);
+                var right = parseInt(rightStr);
+
+                // ERROR CHECK 1: Positive Integers
+                if (left < 0 || right < 0 || isNaN(left) || isNaN(right)) {
+                    alert("Error :(");
+                    return;
+                }
+
+                // ERROR CHECK 2: Divide by Zero
+                if ((op === '/' || op === '%') && right === 0) {
+                    console.log("It's over 9000!");
+                    alert("It's over 9000!");
+                    return;
+                }
+
+                // DO THE MATH
+                var result = 0;
+                if (op === '+') result = left + right;
+                if (op === '-') result = left - right;
+                if (op === '*') result = left * right;
+                if (op === '/') result = left / right;
+                if (op === '%') result = left % right;
+
+                // OUTPUT
+                console.log(result);
+                alert(result);
+            });
+        });
+    </script>
+
+</body>
+</html>
